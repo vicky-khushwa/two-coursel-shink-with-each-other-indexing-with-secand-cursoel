@@ -1,0 +1,132 @@
+//Photo Gallery 
+CarouselSlider(
+                                  options: CarouselOptions(
+                                    height: 200.0,
+                                    aspectRatio: 16 / 9,
+                                    viewportFraction: 1,
+                                  ),
+                                  carouselController: buttonCarouselController,
+                                  items: imageLinks.map((imageLink) {
+                                    return Builder(
+                                      builder: (BuildContext context) {
+                                        return Container(
+                                            width: MediaQuery.of(context)
+                                                .size
+                                                .width,
+                                            margin: EdgeInsets.symmetric(
+                                                horizontal: 5.0),
+                                            child: Image.network(
+                                              imageLink,
+                                              fit: BoxFit.cover,
+                                            ));
+                                      },
+                                    );
+                                  }).toList(),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                // By without carsouel 
+                                Container(
+                                    height: 50,
+                                    width: _width - _width * 0.060 - 16,
+                                    child: Row(
+                                      children: [
+                                        InkWell(
+                                          child: Image.network(imageLinks[0],
+                                              fit: BoxFit.cover,
+                                              width: (_width -
+                                                      _width * 0.060 -
+                                                      16) /
+                                                  4.5),
+                                          onTap: () {
+                                            setState(() {
+                                              buttonCarouselController
+                                                  .jumpToPage(0);
+                                            });
+                                          },
+                                        ),
+                                        Spacer(),
+                                        InkWell(
+                                          child: Image.network(imageLinks[1],
+                                              fit: BoxFit.cover,
+                                              width: (_width -
+                                                      _width * 0.060 -
+                                                      16) /
+                                                  4.5),
+                                          onTap: () {
+                                            setState(() {
+                                              buttonCarouselController
+                                                  .jumpToPage(1);
+                                            });
+                                          },
+                                        ),
+                                        Spacer(),
+                                        InkWell(
+                                          child: Image.network(imageLinks[2],
+                                              fit: BoxFit.cover,
+                                              width: (_width -
+                                                      _width * 0.060 -
+                                                      16) /
+                                                  4.5),
+                                          onTap: () {
+                                            setState(() {
+                                              buttonCarouselController
+                                                  .jumpToPage(2);
+                                            });
+                                          },
+                                        ),
+                                        Spacer(),
+                                        InkWell(
+                                          child: Image.network(imageLinks[3],
+                                              fit: BoxFit.cover,
+                                              width: (_width -
+                                                      _width * 0.060 -
+                                                      16) /
+                                                  4.5),
+                                          onTap: () {
+                                            setState(() {
+                                              buttonCarouselController
+                                                  .jumpToPage(3);
+                                            });
+                                          },
+                                        ),
+                                      ],
+                                    ))
+                                    
+                                    //Width secand carousel 
+                                // CarouselSlider(
+                                //   options: CarouselOptions(
+                                //     height: 60.0,
+                                //     autoPlay: false,
+                                //     aspectRatio: 16 / 9,
+                                //     scrollPhysics:
+                                //         NeverScrollableScrollPhysics(),
+                                //     enableInfiniteScroll: false,
+                                //     viewportFraction: 0.,
+                                //   ),
+                                //   items: imageLinks.map((imageLink) {
+                                //     return Builder(
+                                //       builder: (BuildContext context) {
+                                //         return InkWell(
+                                //           child: Image.network(
+                                //             imageLink,
+                                //             fit: BoxFit.cover,
+                                //           ),
+                                //           onTap: () {
+                                //             print(
+                                //                 imageLinks.indexOf(imageLink));
+                                //             setState(() {
+                                //               buttonCarouselController
+                                //                   .jumpToPage(imageLinks
+                                //                       .indexOf(imageLink));
+                                //             });
+                                //           },
+                                //         );
+                                //       },
+                                //     );
+                                //   }).toList(),
+                                // )
+                              ]),
+                        ),
+                      ),
